@@ -73,7 +73,7 @@ defmodule ExAmqpHelpers do
   end
 
   # Publish Message
-  def publish_message(queue, message),
+  def publish_message(message, queue),
     do: GenServer.call(:queue_manager, {:publish_message, queue, message})
 
   def handle_call({:publish_message, queue, message}, _from, %{chan: chan}=state) do
