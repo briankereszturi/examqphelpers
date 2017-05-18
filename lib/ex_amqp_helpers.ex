@@ -1,4 +1,4 @@
-defmodule ExamqpHelpers do
+defmodule ExAmqpHelpers do
   use GenServer
   use AMQP
 
