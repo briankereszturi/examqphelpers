@@ -51,7 +51,7 @@ defmodule ExAmqpHelpers do
     case Basic.get(chan, queue) do
       {:ok, message, meta} ->
         ack_fn = fn -> Basic.ack(chan, meta.delivery_tag) end
-        {:reply, {:ok, message, meta.delivery_tag}, state}
+        {:reply, {:ok, message, ack_fn}, state}
       _ ->
         {:reply, :empty, state}
     end
